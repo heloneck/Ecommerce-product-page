@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Frontend Mentor | E-commerce product page</title>
+</head>
+
+<body>
+    <header>
+        <div class="header_container">
+            <div class="left_section">
+                <div class="logo"><img src="images/logo.svg"></div>
+                <nav>
+                    <input id="nav-toggle" type="checkbox">
+                    <ul class="links">
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <div class="blacking"></div>
+                    <label for="nav-toggle" class="icon-burger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </label>
+
+                </nav>
+            </div>
+            <div class="right_section">
+                <div class="icon-cart" onclick="check_checkbox_condition()" >
+                    <img class="icon-cart-img" src="images/icon-cart.svg" alt="">
+                    <div class="cart_items" id="cart_items_container">
+                        <div class="cart_box_title"><span style="margin-left: 20px;">Cart</span></div>
+                        <div class="cart_item">
+
+                            <span id="cart_empty" class="empty_cart">Your cart is empty</span>
+
+                            <div id="cart_not_empty" class="incart_items">
+                                <div class="top_section_main">
+                                    <div class="left_section_secondry">
+                                        <img class="left_section_secondry_img" src="/images/image-product-1-thumbnail.jpg" alt="" class="cart_image_preview">
+                                    </div>
+                                    <div class="middle_section_secondry">
+                                        <div class="top_section_last">Fall Limited Edition Sneakers</div>
+                                        <div class="bottom_section_last">$125.00 x <span id="amount1">0</span> <strong>$</strong><span id="total" style="font-weight:bold;">0</span></div>
+                                    </div>
+                                    <div class="right_section_secondry" onclick="delete_cart()">
+                                        <img src="/images/icon-delete.svg" alt="" class="delete_svg">
+                                    </div>
+                                </div>
+                                <div class="bottom_section_main">
+                                    <div class="checkout_button">Checkout</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="profile_pic_container">
+                    <img  class="profile_pic" src="images/image-avatar.png">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="product_main_container">
+            <div class="product_picture_preview">
+                <img id="preview_img" class="product_image" src="images/image-product-1.jpg" alt="">
+                <div class="next_btn_left" onclick="change_img_left()">
+                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+                </div>
+                <div class="next_btn_right" onclick="change_img_right()">
+                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+                </div>
+            </div>
+            <div class="product_picture_preview_desktop">
+                <div class="img_big_preview" onclick="open_overlay()">
+                    <img id="big_img" class="big_img"  src="images/image-product-1.jpg" alt="">
+                </div>
+                <div class="img_small_preview_container">
+                    <div  class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-1-thumbnail.jpg" alt="product-1"></div>
+                    <div  class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-2-thumbnail.jpg" alt="product-2"></div>
+                    <div  class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-3-thumbnail.jpg" alt="product-3"></div>
+                    <div  class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-4-thumbnail.jpg" alt="product-4"></div>
+                </div>
+            </div>
+            
+            <div class="product_info">
+                <h1 class="product_title">Fall Limited Edition Sneakers</h1>
+                <h2 class="product_description">These low-profile sneakers are your perfect casual wear companion. Featuring a
+                    durable rubber outer sole, they’ll withstand everything the weather can offer.</h2>
+                <div class="product_price">
+                    <div class="discounted_price_container">
+                        <div class="discounted_price">$125.00</div>
+                        <div class="discounted_amount">50%</div>
+                    </div>
+                    <div class="original_price">$250.00</div>
+                </div>
+                <div class="amount_of_products_btn">
+                    <button id="Decrease" class="btns1" onclick="Decrease()"><svg width="12" height="4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" id="a"/></defs><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a"/></svg></button>
+                    <button id="amount" class="btn">0</button>
+                    <button id="Increase" class="btns2" onclick="Increase()"><svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" id="b"/></defs><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b"/></svg></button>
+                </div>
+                <div class="add_to_cart_button_container" onclick="add_to_cart()">
+                    <div class="add_to_cart_button_icons"><svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#FFFFFF" fill-rule="nonzero"/></svg></div>
+                    <div class="add_to_cart_button_icons">Add to cart</div>
+                </div>
+            </div>
+        </div>
+        <div id="overlay" class="overlay_container">
+            <div class="big_preview">
+                <img id="preview_img_overlay" class="overlay_big_img" src="/images/image-product-1.jpg" alt="">
+                <div class="next_btn_left_overlay" onclick="change_img_left_overlay()">
+                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+                </div>
+                <div class="next_btn_right_overlay" onclick="change_img_right_overlay()">
+                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+                </div>
+                <div class="close" onclick="close_overlay()">
+                    <svg width="18" height="17" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="white" fill-rule="evenodd"/></svg>
+                </div>
+            </div>
+            <div class="small_preview">
+                <div class="img_small_preview_container_overlay">
+                    <div class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-1-thumbnail.jpg" alt="product-1"></div>
+                    <div class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-2-thumbnail.jpg" alt="product-2"></div>
+                    <div class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-3-thumbnail.jpg" alt="product-3"></div>
+                    <div class="img_small_preview"><img id="img_small_preview" class="small_img" src="images/image-product-4-thumbnail.jpg" alt="product-4"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="JavaScript/cart.js"></script>
+    <script src="/JavaScript/Pictures_nav.js"></script>
+    <script src="/JavaScript/buttons.js"></script>
+
+</body>
+</html>
