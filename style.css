@@ -348,7 +348,10 @@ nav .icon-burger .line {
   cursor: pointer;
 
 }
-
+.add_to_cart_button_container:active {
+  opacity: 0.5;
+  background-color: var(--clr-Pale-orange);
+}
 
 .empty_cart {
   display: flex;

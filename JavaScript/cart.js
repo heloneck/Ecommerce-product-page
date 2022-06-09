@@ -27,10 +27,7 @@
 
             };
         }
-        function delete_cart() {
-            amount = 0;
-            change_text()
-        };
+
 
 
 
